@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>Menu</h3>
+        <button onclick="showSection('metrics')">Metrics</button>
+        <button onclick="showSection('items')">Items</button>
+        <button onclick="addItem()">Add Item</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <div class="main">
+        <header>
+            <h2 id="welcome">Welcome!</h2>
+        </header>
+        <div id="metrics" class="section active">
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Items</h3>
+                    <div id="totalItems" class="value">0</div>
+                </div>
+                <div class="card">
+                    <h3>Total Value</h3>
+                    <div id="totalValue" class="value">$0</div>
+                </div>
+                <div class="card">
+                    <h3>Avg Price</h3>
+                    <div id="avgPrice" class="value">$0</div>
+                </div>
+            </div>
+            <canvas id="chart"></canvas>
+        </div>
+        <div id="items" class="section">
+            <input type="text" id="search" placeholder="Search items..." oninput="filterItems()">
+            <table id="itemsTable">
+                <thead>
+                    <tr><th>Name</th><th>Qty</th><th>Price</th><th>Total</th><th>Actions</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>
